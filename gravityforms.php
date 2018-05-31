@@ -708,7 +708,7 @@ class GFForms {
 		}
 
 		// Ignores all errors
-		set_error_handler( create_function( '', 'return 0;' ), E_ALL );
+		set_error_handler( function () { return 0; }, E_ALL );
 
 		while ( false !== ( $file = readdir( $dir_handle ) ) ) {
 			if ( is_dir( $dir . DIRECTORY_SEPARATOR . $file ) && $file != '.' && $file != '..' ) {
@@ -748,7 +748,7 @@ class GFForms {
 		}
 
 		// ignores all errors
-		set_error_handler( create_function( '', 'return 0;' ), E_ALL );
+		set_error_handler( function () { return 0; }, E_ALL );
 
 		foreach ( glob( $wp_upload_path . DIRECTORY_SEPARATOR . '*_input_*.{php,php5}', GLOB_BRACE ) as $filename ) {
 			$mini_hash = substr( wp_hash( $filename ), 0, 6 );

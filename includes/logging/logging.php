@@ -723,7 +723,7 @@ class GFLogging extends GFAddOn {
 		if ( false !== $similar_files && $file_count > $this->max_file_count ) {
 
 			// Sort by date so oldest are first.
-			usort( $similar_files, create_function( '$a,$b', 'return filemtime($a) - filemtime($b);' ) );
+			usort( $similar_files, function ($a, $b) { return filemtime($a) - filemtime($b); } );
 
 			$delete_count = $file_count - $this->max_file_count;
 
