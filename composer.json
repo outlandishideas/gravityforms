@@ -7,7 +7,7 @@
     ]
   },
   "description": "Gravity Forms, composer-ified",
-  "version": "2.2.6.7",
+  "version": "2.4.5.1",
   "minimum-stability": "stable",
   "require": {
     "composer/installers": "~1.0"
