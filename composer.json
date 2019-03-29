@@ -1,6 +1,11 @@
 {
   "name": "wp-premium/gravityforms",
   "type": "wordpress-plugin",
+  "autoload": {
+    "classmap": [
+      "."
+    ]
+  },
   "description": "Gravity Forms, composer-ified",
   "version": "2.2.6.7",
   "minimum-stability": "stable",
