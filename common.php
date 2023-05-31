@@ -162,6 +162,12 @@ class GFCommon {
 	}
 
 	public static function recursive_add_index_file( $dir ) {
+        if (defined('S3_UPLOADS_BUCKET')) {
+            // Neither classic filesystem security measure is relevant on S3. When this constant is
+            // set, we assume that S3 Uploads is intended to be used for Gravity Forms uploads.
+            return;
+        }
+
 		if ( ! is_dir( $dir ) || is_link( $dir ) ) {
 			return;
 		}
