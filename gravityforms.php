@@ -714,6 +714,12 @@ class GFForms {
 	public static function add_security_files() {
 		GFCommon::log_debug( __METHOD__ . '(): Start adding security files' );
 
+		if (defined('S3_UPLOADS_BUCKET')) {
+			// Neither classic filesystem security measure is relevant on S3. When this constant is
+			// set, we assume that S3 Uploads is intended to be used for Gravity Forms uploads.
+			return;
+		}
+
 		$upload_root = GFFormsModel::get_upload_root();
 
 		if ( ! is_dir( $upload_root ) ) {
