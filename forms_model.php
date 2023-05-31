@@ -5494,19 +5494,19 @@ class GFFormsModel {
 			}
 
 			// Adding index.html files to all subfolders, except when S3 houses uploads.
-            if (!defined('S3_UPLOADS_BUCKET')) {
-                if ($default_target_root != $target_root && !file_exists($target_root . 'index.html')) {
-                    GFCommon::recursive_add_index_file($target_root);
-                } elseif (!file_exists(self::get_upload_root() . '/index.html')) {
-                    GFCommon::recursive_add_index_file(self::get_upload_root());
-                } elseif (!file_exists(self::get_upload_path($form_id) . '/index.html')) {
-                    GFCommon::recursive_add_index_file(self::get_upload_path($form_id));
-                } elseif (!file_exists(self::get_upload_path($form_id) . "/$y/index.html")) {
-                    GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y");
-                } else {
-                    GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y/$m");
-                }
-            }
+			if (!defined('S3_UPLOADS_BUCKET')) {
+				if ($default_target_root != $target_root && !file_exists($target_root . 'index.html')) {
+					GFCommon::recursive_add_index_file($target_root);
+				} elseif (!file_exists(self::get_upload_root() . '/index.html')) {
+					GFCommon::recursive_add_index_file(self::get_upload_root());
+				} elseif (!file_exists(self::get_upload_path($form_id) . '/index.html')) {
+					GFCommon::recursive_add_index_file(self::get_upload_path($form_id));
+				} elseif (!file_exists(self::get_upload_path($form_id) . "/$y/index.html")) {
+					GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y");
+				} else {
+					GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y/$m");
+				}
+			}
 		}
 
 		//Add the original filename to our target path.
